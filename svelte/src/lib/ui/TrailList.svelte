@@ -1,5 +1,5 @@
 <script lang="ts">
-  let { trails } = $props();
+  import { currentTrails } from "$lib/runes.svelte";
 </script>
 
 <table class="table is-fullwidth">
@@ -12,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    {#each trails as trail}
+    {#each currentTrails.trails as trail}
       <tr>
         <td>
           {trail.name}

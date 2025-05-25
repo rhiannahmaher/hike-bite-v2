@@ -1,10 +1,8 @@
 <script lang="ts">
-  import { loggedInUser } from "$lib/runes.svelte";
+  import { currentLocations, loggedInUser } from "$lib/runes.svelte";
   import { trailService } from "$lib/services/trail-service";
   import type { Trail } from "$lib/types/trail-types";
   import Coordinates from "$lib/ui/Coordinates.svelte";
-
-  let { locationList = [] } = $props();
 
   let name = $state("Stop Name");
   let lat = $state(52.160858);
@@ -16,7 +14,9 @@
 
   async function addTrail() {
     if (selectedLocation && name && selectedType) {
-      const location = locationList.find((location) => location._id === selectedLocation);
+      const location = currentLocations.locations.find(
+        (location) => location._id === selectedLocation
+    );
       if (location) {
         const trail: Trail = {
           name: name,
@@ -56,7 +56,7 @@
     <label class="label" for="amount">Select Location:</label>
     <div class="select">
       <select bind:value={selectedLocation}>
-        {#each locationList as location}
+        {#each currentLocations.locations as location}
           <option value={location._id}>{location.name}</option>
         {/each}
       </select>

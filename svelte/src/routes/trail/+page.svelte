@@ -1,19 +1,21 @@
 <script lang="ts">
-  import { loggedInUser, subTitle } from "$lib/runes.svelte";
-  import { trailService } from "$lib/services/trail-service";
+  import { subTitle } from "$lib/runes.svelte";
   import Card from "$lib/ui/Card.svelte";
-  import { onMount } from "svelte";
   import TrailForm from "./TrailForm.svelte";
-  import type { Location } from "$lib/types/trail-types";
+  import TrailList from "$lib/ui/TrailList.svelte";
 
   subTitle.text = "Add a Stop";
-  let locationList: Location[] = [];
-
-  onMount(async () => {
-    locationList = await trailService.getLocations(loggedInUser.token);
-  });
 </script>
 
-<Card title="Please add Stop">
-  <TrailForm {locationList} />
-</Card>
+<div class="columns">
+  <div class="column">
+    <Card title="Stops to Date">
+      <TrailList />
+    </Card>
+  </div>
+  <div class="column">
+    <Card title="Add Stop">
+      <TrailForm />
+    </Card>
+  </div>
+</div>

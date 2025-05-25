@@ -1,10 +1,7 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
-  import { loggedInUser } from "$lib/runes.svelte";
+  import { trailService } from "$lib/services/trail-service";
 
-  loggedInUser.email = "";
-  loggedInUser.name = "";
-  loggedInUser.token = "";
-  loggedInUser._id = "";
+  trailService.clearSession();
   goto("/");
 </script>
