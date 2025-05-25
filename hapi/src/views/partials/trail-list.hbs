@@ -1,0 +1,28 @@
+<Card title="Trails Added">
+  <table class="table is-fullwidth">
+    <thead>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Location</th>
+      <th>Added By</th>
+    </thead>
+    <tbody>
+      {{#each trails}}
+      <tr>
+        <td>
+          {{name}}
+        </td>
+        <td>
+          {{type}}
+        </td>
+        <td>
+          {{location.name}}
+        </td>
+        <td>
+          {{donor}}
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</Card>
