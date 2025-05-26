@@ -1,5 +1,7 @@
-import { currentDataSets } from "$lib/runes.svelte";
+import { currentDataSets, loggedInUser } from "$lib/runes.svelte";
 import type { Location, Trail } from "$lib/types/trail-types";
+import { trailService } from "./trail-service";
+import LeafletMap from "$lib/ui/LeafletMap.svelte";
 
 export function computeByType(trailList: Trail[]) {
   trailList.forEach((trail) => {
@@ -17,7 +19,7 @@ export function computeByType(trailList: Trail[]) {
 
 export function computeByLocation(trailList: Trail[], locations: Location[]) {
   currentDataSets.trailsByLocation.labels = [];
-  currentDataSets.trailsByLocation.datasets[0].values = [];  // RESET values array
+  currentDataSets.trailsByLocation.datasets[0].values = []; 
 
   locations.forEach((location) => {
     // @ts-ignore
@@ -34,4 +36,17 @@ export function computeByLocation(trailList: Trail[], locations: Location[]) {
       }
     });
   });
+}
+
+export async function refreshTrailMap (map: LeafletMap) {
+    if (!loggedInUser.token) trailService.restoreSession();
+    const trails = await trailService.getTrails(loggedInUser.token);
+    trails.forEach((trail: Trail) => {
+        if (typeof trail.location !== "string") {
+          const popup = `${trail.location.name} (${trail.type})`;
+          map.addMarker(trail.lat, trail.lng, popup);
+        }
+      });
+      const lastTrail = trails[trails.length - 1];
+      if (lastTrail) map.moveTo(lastTrail.lat, lastTrail.lng);
 }

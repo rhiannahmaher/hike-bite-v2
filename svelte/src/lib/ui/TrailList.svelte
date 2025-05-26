@@ -23,7 +23,7 @@
           {trail.location.name}
         </td>
         <td>
-          {trail.donor.firstName}, {trail.donor.lastName}
+          {trail.donor.firstName} {trail.donor.lastName}
         </td>
       </tr>
     {/each}

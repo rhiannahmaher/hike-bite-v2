@@ -16,6 +16,7 @@
         <a class="navbar-item" href="/trail"> Dashboard </a>
         <a class="navbar-item" href="/report"> Stops </a>
         <a class="navbar-item" href="/charts"> Charts </a>
+        <a class="navbar-item" href="/maps"> Maps </a>
         <a class="navbar-item" href="/logout"> Logout [{loggedInUser.name}]</a>
       </div>
       <div></div>

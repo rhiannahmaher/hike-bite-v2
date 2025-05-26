@@ -11,6 +11,7 @@
   let types = ["Cafe", "Restaurant", "Pub", "Other"];
   let selectedType = $state("Stop Type");
   let message = $state("Please add Stop");
+  let { trailEvent = null } = $props();
 
   async function addTrail() {
     if (selectedLocation && name && selectedType) {
@@ -31,6 +32,7 @@
           message = "Stop add not completed - some error occurred";
           return;
         }
+        if (trailEvent) trailEvent(trail);
         message = `Thanks! You added ${name} to ${location.name}`;
       }
     } else {
