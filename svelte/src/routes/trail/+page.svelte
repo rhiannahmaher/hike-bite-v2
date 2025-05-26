@@ -14,19 +14,14 @@
   subTitle.text = "Add a Stop";
   let map: LeafletMap;
 
-  onMount(async () => {
-    await refreshTrailMap(map);
-  });
-
   function trailAdded(trail: Trail) {
     map.addMarker(trail.lat, trail.lng, "");
     map.moveTo(trail.lat, trail.lng);
   }
 
-
-    function refreshDonationMap(map: { $on?(type: string, callback: (e: any) => void): () => void; $set?(props: Partial<{ height?: number; }>): void; } & { addMarker: (lat: number, lng: number, popupText: string) => Promise<void>; moveTo: (lat: number, lng: number) => Promise<void>; }) {
-        throw new Error("Function not implemented.");
-    }
+  onMount(async () => {
+    await refreshTrailMap(map);
+  });
 </script>
 
 <div class="columns">

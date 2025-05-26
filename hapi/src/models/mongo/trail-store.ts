@@ -6,7 +6,7 @@ export const trailStore = {
     const trails = await TrailMongoose.find().populate("donor").populate("location").lean();
     trails.forEach((trail) => {
       // @ts-ignore
-      trail.donor = `${trail.donor.firstName} ${trail.donor.lastName}`;
+      trail.donor = `${trail.donor.firstName}, ${trail.donor.lastName}`;
     });
     return trails;
   },
