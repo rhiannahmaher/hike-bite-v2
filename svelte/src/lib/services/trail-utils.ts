@@ -4,6 +4,7 @@ import { trailService } from "./trail-service";
 import LeafletMap from "$lib/ui/LeafletMap.svelte";
 
 export function computeByType(trailList: Trail[]) {
+  currentDataSets.trailsByType.datasets[0].values = [0, 0, 0, 0];
   trailList.forEach((trail) => {
     if (trail.type == "Cafe") {
       currentDataSets.trailsByType.datasets[0].values[0] += 1;
