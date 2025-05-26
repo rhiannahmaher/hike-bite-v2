@@ -25,3 +25,8 @@ export interface Trail {
   lat: number;
   lng: number;
 }
+
+export interface DataSet {
+  labels: string[];
+  datasets: [{ values: number[] }];
+}

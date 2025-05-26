@@ -2,6 +2,7 @@ import axios from "axios";
 import type { Session, User } from "$lib/types/trail-types";
 import type { Location, Trail } from "$lib/types/trail-types";
 import { currentLocations, currentTrails, loggedInUser } from "$lib/runes.svelte";
+import { computeByLocation, computeByType } from "./trail-utils";
 
 export const trailService = {
   baseUrl: "http://localhost:4000",
@@ -74,6 +75,8 @@ export const trailService = {
     if (loggedInUser.token) {
       currentTrails.trails = await this.getTrails(loggedInUser.token);
       currentLocations.locations = await this.getLocations(loggedInUser.token);
+      computeByType(currentTrails.trails);
+      computeByLocation(currentTrails.trails, currentLocations.locations)
     }
   },
 
