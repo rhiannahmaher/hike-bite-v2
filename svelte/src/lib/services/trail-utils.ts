@@ -40,14 +40,14 @@ export function computeByLocation(trailList: Trail[], locations: Location[]) {
 }
 
 export async function refreshTrailMap (map: LeafletMap) {
-    if (!loggedInUser.token) trailService.restoreSession();
-    const trails = await trailService.getTrails(loggedInUser.token);
-    trails.forEach((trail: Trail) => {
-        if (typeof trail.location !== "string") {
-          const popup = `${trail.location.name} (${trail.type})`;
-          map.addMarker(trail.lat, trail.lng, popup);
-        }
-      });
-      const lastTrail = trails[trails.length - 1];
-      if (lastTrail) map.moveTo(lastTrail.lat, lastTrail.lng);
+  if (!loggedInUser.token) trailService.restoreSession();
+  const trails = await trailService.getTrails(loggedInUser.token);
+  trails.forEach((trail: Trail) => {
+    if (typeof trail.location !== "string") {
+      const popup = `${trail.location.name} (${trail.type})`;
+      map.addMarker(trail.lat, trail.lng, popup);
+    }
+  });
+  const lastTrail = trails[trails.length - 1];
+  if (lastTrail) map.moveTo(lastTrail.lat, lastTrail.lng);
 }

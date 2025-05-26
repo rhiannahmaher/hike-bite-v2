@@ -18,6 +18,7 @@
     </span>
   </div>
 </div>
+
 <div class="field">
   <label class="label" for="password">Password</label>
   <div class="control has-icons-left">

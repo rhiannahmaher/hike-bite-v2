@@ -13,6 +13,7 @@ export type Location = {
 
 export interface Trail {
   name: string;
+  img: string;
   type: string;
   location: Location | string;
   donor: User | string;

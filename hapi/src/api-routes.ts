@@ -18,5 +18,5 @@ export const apiRoutes = [
   { method: "GET" as const, path: "/api/trails", config: trailsApi.findAll },
   { method: "GET" as const, path: "/api/locations/{id}/trails", config: trailsApi.findByLocation },
   { method: "POST" as const, path: "/api/locations/{id}/trails", config: trailsApi.addTrail },
-  { method: "DELETE" as const, path: "/api/trails", config: trailsApi.deleteAll },
+  { method: "DELETE" as const, path: "/api/trails", config: trailsApi.deleteAll }
 ];

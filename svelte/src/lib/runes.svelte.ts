@@ -7,8 +7,10 @@ export const loggedInUser = $state({
     token: "",
     _id: ""
  });
+
 export const currentTrails = $state({ trails: [] as Trail[] });
 export const currentLocations = $state({ locations: [] as Location[] });
+
 export const currentDataSets = $state({
   trailsByType: {
     labels: ["Cafe", "Restaurant", "Pub", "Other"],

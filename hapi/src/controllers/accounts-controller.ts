@@ -8,12 +8,14 @@ export const accountsController = {
       return h.view("main", { title: "Welcome to Hike & Bite" });
     },
   },
+
   showSignup: {
     auth: false,
     handler: async function (request: Request, h: ResponseToolkit) {
       return h.view("signup", { title: "Sign up for Hike & Bite" });
     },
   },
+
   signup: {
     auth: false,
     handler: async function (request: Request, h: ResponseToolkit) {
@@ -22,12 +24,14 @@ export const accountsController = {
       return h.redirect("/");
     },
   },
+
   showLogin: {
     auth: false,
     handler: async function (request: Request, h: ResponseToolkit) {
       return h.view("login", { title: "Login to Hike & Bite" });
     },
   },
+
   login: {
     auth: false,
     handler: async function (request: Request, h: ResponseToolkit) {
@@ -40,6 +44,7 @@ export const accountsController = {
       return h.redirect("/trails");
     },
   },
+  
   logout: {
     handler: async function (request: Request, h: ResponseToolkit) {
       request.cookieAuth.clear();

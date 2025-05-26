@@ -12,7 +12,8 @@ export const webRoutes = [
   { method: "GET" as const, path: "/trail", config: trailsController.index },
   { method: "POST" as const, path: "/trail", config: trailsController.addTrail },
   { method: "GET" as const, path: "/report", config: trailsController.report },
-
+  
+  { method: "POST" as const, path: "/trail/{id}/uploadimage", config: trailsController.uploadImage },
   {
     method: "GET" as const,
     path: "/{param*}",

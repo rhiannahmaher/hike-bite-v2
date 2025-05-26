@@ -4,6 +4,7 @@ import { Trail } from "../../types/trail-types";
 const trailSchema = new Schema<Trail>({
   name: String,
   type: String,
+  img: String,
   donor: {
     type: Schema.Types.ObjectId,
     ref: "User",

@@ -19,6 +19,21 @@ export const trailStore = {
     return trail;
   },
 
+  async updateTrail(updatedTrail) {
+    const trail = await TrailMongoose.findOne({ _id: updatedTrail._id });
+    trail.name = updatedTrail.name;
+    trail.img = updatedTrail.img;
+    await trail.save();
+  },
+
+  async findByType(type: string): Promise<Trail[]> {
+    const trails = await TrailMongoose.find({ type })
+    if (!trails) {
+      return null;
+    }
+    return trails;
+  },
+
   async add(trail: Trail): Promise<Trail | null> {
     let newTrail = new TrailMongoose({ ...trail });
     await newTrail.save();

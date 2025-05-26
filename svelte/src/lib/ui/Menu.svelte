@@ -11,6 +11,7 @@
         ><span><strong>Hike & Bite</strong> </span>
       </a>
     </div>
+    
     <div id="navbarMenu" class="navbar-menu">
       <div class="navbar-end">
         <a class="navbar-item" href="/trail"> Dashboard </a>

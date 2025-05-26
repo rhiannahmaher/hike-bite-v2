@@ -2,6 +2,7 @@ import Boom from "@hapi/boom";
 import { Request, ResponseToolkit } from "@hapi/hapi";
 import { db } from "../models/db.js";
 import { Location, Trail } from "../types/trail-types.js";
+import { trailStore } from "../models/mongo/trail-store.js";
 
 export const trailsApi = {
   findAll: {
@@ -16,6 +17,15 @@ export const trailsApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+  },
+
+  findByType: {
+    auth: false,
+    handler: async function (request, h) {
+      const type = request.params.type;
+      const trails = await trailStore.findByType(type);
+      return trails;
+    }
   },
 
   findByLocation: {

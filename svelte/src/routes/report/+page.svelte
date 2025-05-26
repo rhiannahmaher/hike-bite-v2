@@ -5,6 +5,7 @@
   import { trailService } from "$lib/services/trail-service";
   import { onMount } from "svelte";
   import type { Trail } from "$lib/types/trail-types";
+  import TrailDetails from "$lib/ui/TrailDetails.svelte";
 
   subTitle.text = "Trails to Date";
 
@@ -16,4 +17,7 @@
 
 <Card title="Trails">
   <TrailList {trails} />
+</Card>
+<Card title="Trails">
+  <TrailDetails {trails} />
 </Card>

@@ -17,7 +17,7 @@
     if (selectedLocation && name && selectedType) {
       const location = currentLocations.locations.find(
         (location) => location._id === selectedLocation
-    );
+      );
       if (location) {
         const trail: Trail = {
           name: name,
