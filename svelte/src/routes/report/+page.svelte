@@ -1,23 +1,18 @@
 <script lang="ts">
   import Card from "$lib/ui/Card.svelte";
   import TrailList from "$lib/ui/TrailList.svelte";
-  import { loggedInUser, subTitle } from "$lib/runes.svelte";
-  import { trailService } from "$lib/services/trail-service";
-  import { onMount } from "svelte";
-  import type { Trail } from "$lib/types/trail-types";
-  import TrailDetails from "$lib/ui/TrailDetails.svelte";
+  import { subTitle } from "$lib/runes.svelte";
+  import { refreshTrailState } from "$lib/services/trail-utils";
+  import type { PageProps } from "./$types";
 
-  subTitle.text = "Trails to Date";
-
-  let trails: Trail[] = [];
-  onMount(async () => {
-    trails = await trailService.getTrails(loggedInUser.token);
-  });
+  subTitle.text = "Stops to Date";
+  let { data }: PageProps = $props();
+  refreshTrailState(data.trails, data.locations);
 </script>
 
-<Card title="Trails">
-  <TrailList {trails} />
+<Card title="Donations">
+  <TrailList />
 </Card>
 <Card title="Trails">
-  <TrailDetails {trails} />
+  <TrailList />
 </Card>

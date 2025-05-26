@@ -1,5 +1,4 @@
 import { db } from "../models/db.js";
-
 export const accountsController = {
     index: {
         auth: false,

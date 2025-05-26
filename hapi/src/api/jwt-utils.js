@@ -1,7 +1,6 @@
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import { db } from "../models/db.js";
-
 dotenv.config();
 const cookiePassword = process.env.cookie_password;
 export function createToken(user) {

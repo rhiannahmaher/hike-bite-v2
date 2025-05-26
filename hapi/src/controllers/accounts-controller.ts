@@ -41,10 +41,10 @@ export const accountsController = {
         return h.redirect("/");
       }
       request.cookieAuth.set({ id: user._id });
-      return h.redirect("/trails");
+      return h.redirect("/trail");
     },
   },
-  
+
   logout: {
     handler: async function (request: Request, h: ResponseToolkit) {
       request.cookieAuth.clear();

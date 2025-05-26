@@ -48,28 +48,4 @@ export const trailsController = {
       });
     },
   },
-
-  uploadImage: {
-    handler: async function (request, h) {
-      try {
-        const trail = await db.trailStore.getTrailById(request.params.id);
-        const file = request.payload.imagefile;
-        if (Object.keys(file).length > 0) {
-          const url = await imageStore.uploadImage(request.payload.imagefile);
-          trail.img = url;
-          await db.trailStore.updateTrail(trail);
-        }
-        return h.redirect(`/trail/${trail._id}`);
-      } catch (err) {
-        console.log(err);
-        return h.redirect(`/trail/${trail._id}`);
-      }
-    },
-    payload: {
-      multipart: true,
-      output: "data",
-      maxBytes: 209715200,
-      parse: true,
-    },
-  },
 };

@@ -1,5 +1,4 @@
 import { db } from "../models/db.js";
-
 export const trailsController = {
     index: {
         handler: async function (request, h) {
@@ -20,8 +19,8 @@ export const trailsController = {
                 const trail = {
                     name: trailPayload.name,
                     type: trailPayload.type,
-                    donor: loggedInUser._id,
                     location: trailPayload.location,
+                    donor: loggedInUser._id,
                     lat: trailPayload.lat,
                     lng: trailPayload.lng,
                 };

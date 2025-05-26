@@ -1,5 +1,4 @@
 import { LocationMongoose } from "./location.js";
-
 export const locationStore = {
     async find() {
         const locations = await LocationMongoose.find().lean();
@@ -11,7 +10,7 @@ export const locationStore = {
     },
     async findBy(name) {
         const location = await LocationMongoose.findOne({
-            name
+            name,
         });
         return location;
     },

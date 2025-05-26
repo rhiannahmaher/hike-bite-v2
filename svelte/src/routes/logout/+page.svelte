@@ -1,7 +1,8 @@
 <script lang="ts">
+  import { browser } from "$app/environment";
   import { goto } from "$app/navigation";
-  import { trailService } from "$lib/services/trail-service";
+  import { clearTrailState } from "$lib/services/trail-utils";
 
-  trailService.clearSession();
-  goto("/");
+  clearTrailState();
+  if (browser) goto("/");
 </script>

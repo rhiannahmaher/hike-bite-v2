@@ -1,8 +1,8 @@
 import { Schema, model } from "mongoose";
-
 const trailSchema = new Schema({
     name: String,
     type: String,
+    img: String,
     donor: {
         type: Schema.Types.ObjectId,
         ref: "User",

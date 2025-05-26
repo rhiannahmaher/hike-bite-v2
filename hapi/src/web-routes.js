@@ -1,6 +1,5 @@
 import { accountsController } from "./controllers/accounts-controller.js";
 import { trailsController } from "./controllers/trails-controller.js";
-
 export const webRoutes = [
     { method: "GET", path: "/", config: accountsController.index },
     { method: "GET", path: "/signup", config: accountsController.showSignup },

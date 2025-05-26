@@ -1,7 +1,6 @@
 import { locationsApi } from "./api/locations-api.js";
 import { trailsApi } from "./api/trails-api.js";
 import { userApi } from "./api/users-api.js";
-
 export const apiRoutes = [
     { method: "GET", path: "/api/users", config: userApi.find },
     { method: "POST", path: "/api/users", config: userApi.create },
@@ -16,5 +15,5 @@ export const apiRoutes = [
     { method: "GET", path: "/api/trails", config: trailsApi.findAll },
     { method: "GET", path: "/api/locations/{id}/trails", config: trailsApi.findByLocation },
     { method: "POST", path: "/api/locations/{id}/trails", config: trailsApi.addTrail },
-    { method: "DELETE", path: "/api/trails", config: trailsApi.deleteAll },
+    { method: "DELETE", path: "/api/trails", config: trailsApi.deleteAll }
 ];

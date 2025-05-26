@@ -6,7 +6,6 @@ import { userStore } from "./user-store.js";
 import { seedData } from "./seed-data.js";
 import { trailStore } from "./trail-store.js";
 import { locationStore } from "./location-store.js";
-
 const seedLib = mongooseSeeder.default;
 async function seed() {
     const seeder = seedLib(Mongoose);
@@ -27,7 +26,7 @@ export function connectMongo(db) {
     mongoDb.on("disconnected", () => {
         console.log("database disconnected");
     });
-    mongoDb.once("open", () => {
+    mongoDb.once("open", function () {
         console.log(`database connected to ${mongoDb.name} on ${mongoDb.host}`);
         seed();
     });
