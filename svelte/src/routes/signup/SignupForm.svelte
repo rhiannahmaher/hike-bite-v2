@@ -26,7 +26,7 @@
   {/if}
   <UserDetails bind:firstName bind:lastName />
   <UserCredentials bind:email bind:password />
-  <button onclick={() => signup()} class="button">Sign Up</button>
+  <button onclick={() => signup()} class="button has-background-success">Sign Up</button>
   <p class="has-text-centered">
     Already have an account? <a href="/login" data-cy="login-redirect">Login Here</a>
   </p>

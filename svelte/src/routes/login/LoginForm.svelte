@@ -26,5 +26,5 @@
     <Message {message} />
   {/if}
   <UserCredentials bind:email bind:password />
-  <button onclick={() => login()} class="button">Log In</button>
+  <button onclick={() => login()} class="button has-background-success">Log In</button>
 </div>

@@ -2,30 +2,8 @@
   <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
     {{#each trails}}
     <div class="box" style="display: flex; flex-direction: column; width: 300px;">
-      <div class="card-image">
-    <figure class="image is-256x256">
-      <img src={{trail.img}}>
-    </figure>
-  </div>
-  <div class="card-content">
-    <form action="/trail/{{trail._id}}/uploadimage" method="POST" enctype="multipart/form-data">
-      <div id="file-select" class="file has-name is-fullwidth">
-        <label class="file-label"> <input class="file-input" name="imagefile" type="file" name="resume" accept="image/png, image/jpeg">
-          <span class="file-cta">
-            <span class="file-icon">
-              <i class="fas fa-upload"></i>
-            </span>
-            <span class="file-label">
-              Choose a file…
-            </span>
-           </span>
-          <span class="file-name"></span>
-        </label>
-        <button type="submit" class="button is-info">Upload</button>
-      </div>
-    </form>
-  </div>
       <div style="border: 1px solid #ddd; padding: 1rem; border-radius: 6px; margin-top: 0.5rem;">
+        <h5 style="color: Forestgreen; text-align: center; font-weight: bold; margin-bottom: 0.75rem;">{{name}}</h5>
         <p><strong>Type:</strong> {{type}}</p>
         <p><strong>Location:</strong> {{location.name}}</p>
         <p><strong>Added By:</strong> {{donor}}</p>
@@ -34,13 +12,3 @@
     {{/each}}
   </div>
 </Card>
-
-<script>
-  const fileInput = document.querySelector(".file-input");
-  fileInput.onchange = () => {
-    if (fileInput.files.length > 0) {
-      const fileName = document.querySelector(".file-name");
-      fileName.textContent = fileInput.files[0].name;
-    }
-  };
-</script>

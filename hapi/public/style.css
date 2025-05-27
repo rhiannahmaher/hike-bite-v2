@@ -1,4 +1,14 @@
 body {
-  background: #e4e9f2;
   min-height: 100vh;
+}
+
+/* Reference: https://stackoverflow.com/questions/50043803/how-to-make-an-element-fill-the-remaining-viewport-height */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the container fills the entire height of the viewport */
+}
+
+table .button-cell {
+  border: none;
 }
