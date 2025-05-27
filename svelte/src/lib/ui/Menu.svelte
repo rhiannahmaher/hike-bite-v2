@@ -5,10 +5,10 @@
 <nav class="navbar is-full-width">
   <div class="container">
     <div class="navbar-brand">
-      <a class="navbar-item" href="/dashboard">
-        <span class="icon"> <i class="fas fa-map-marker-alt"></i></span><span class="icon mr-1">
-          <i class="far fa-money-bill-alt"></i></span
-        ><span><strong>Hike & Bite</strong> </span>
+      <a class="navbar-item" href="/trail">
+        <span class="icon"> <i class="fas fa-map-marker-alt" style="color: Forestgreen"></i></span>
+        <span class="icon mr-1"><i class="fab fa-pagelines" style="color: Forestgreen"></i></span>
+        <span style="color: Forestgreen"><strong>Hike & Bite</strong> </span>
       </a>
     </div>
 

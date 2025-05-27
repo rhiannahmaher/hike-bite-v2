@@ -7,13 +7,13 @@
 
 <div class="columns">
   <div class="column">
-    <Card title="Trails By Type">
+    <Card title="Stops By Type">
       <Chart data={currentDataSets.trailsByType} type="bar" />
     </Card>
   </div>
 
   <div id="location" class="column has-text-centered">
-    <Card title="Trails By Location">
+    <Card title="Stops By Location">
       <Chart data={currentDataSets.trailsByLocation} type="pie" truncateLegends={0} />
     </Card>
   </div>

@@ -73,7 +73,7 @@
 
   <div class="field">
     <div class="control">
-      <button onclick={() => addTrail()} class="button">Add Stop</button>
+      <button onclick={() => addTrail()} class="button has-background-success">Add Stop</button>
     </div>
   </div>
 </div>

@@ -23,30 +23,32 @@
     map.moveTo(trail.lat, trail.lng);
   }
 
-
-    function refreshDonationMap(map: { $on?(type: string, callback: (e: any) => void): () => void; $set?(props: Partial<{ height?: number; }>): void; } & { addMarker: (lat: number, lng: number, popupText: string) => Promise<void>; moveTo: (lat: number, lng: number) => Promise<void>; }) {
-        throw new Error("Function not implemented.");
-    }
+  function refreshDonationMap(map: { $on?(type: string, callback: (e: any) => void): () => void; $set?(props: Partial<{ height?: number; }>): void; } & { addMarker: (lat: number, lng: number, popupText: string) => Promise<void>; moveTo: (lat: number, lng: number) => Promise<void>; }) {
+    throw new Error("Function not implemented.");
+  }
 </script>
 
 <div class="columns">
-  <div class="column">
-    <Card title="Trails to Date">
+  <div class="column is-half">
+    <Card title="Stops to Date (Map View)">
       <LeafletMap height={50} bind:this={map} />
     </Card>
   </div>
-  <div class="column">
+  <div class="column is-half">
+    <Card title="Stops by Types">
+      <Chart data={currentDataSets.trailsByType} type="bar" />
+    </Card>
+  </div>
+</div>
+
+<div class="columns">
+   <div class="column is-half">
     <Card title="Add Stop">
       <TrailForm trailEvent={trailAdded} />
     </Card>
   </div>
-  <div class="column">
-    <Card title="Stops to Date">
-      <Chart data={currentDataSets.trailsByType} type="bar" />
-    </Card>
-  </div>
-  <div class="column">
-    <Card title="Add Trail">
+  <div class="column is-half">
+    <Card title="Stops to Date (Report View)">
       <TrailList />
     </Card>
   </div>

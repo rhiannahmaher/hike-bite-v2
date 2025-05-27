@@ -5,10 +5,10 @@
 <table class="table is-fullwidth">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Location</th>
-      <th>Added By</th>
+      <th style="color: Forestgreen">Name</th>
+      <th style="color: Forestgreen">Type</th>
+      <th style="color: Forestgreen">Location</th>
+      <th style="color: Forestgreen">Added By</th>
     </tr>
   </thead>
   <tbody>

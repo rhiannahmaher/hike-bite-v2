@@ -4,12 +4,12 @@
   import { subTitle } from "$lib/runes.svelte";
   import TrailDetails from "$lib/ui/TrailDetails.svelte";
 
-  subTitle.text = "Stops to Date";
+  subTitle.text = "Stops Report";
 </script>
 
-<Card title="Trails Report">
+<Card title="Stops List">
   <TrailList />
 </Card>
-<Card title="Trails">
+<Card title="Stops">
   <TrailDetails />
 </Card>

@@ -13,6 +13,6 @@
   });
 </script>
 
-<Card title="Trail Locations">
+<Card title="Stop Locations">
   <LeafletMap height={80} bind:this={map}/>
 </Card>
