@@ -1,52 +1,43 @@
 <script lang="ts">
-  import { currentDataSets, currentTrails, currentLocations, loggedInUser, subTitle } from "$lib/runes.svelte";
-  import type { ActionResult } from "@sveltejs/kit";
+  import { currentDataSets, loggedInUser, subTitle } from "$lib/runes.svelte";
   import Card from "$lib/ui/Card.svelte";
   import type { Trail } from "$lib/types/trail-types";
+  import { trailService } from "$lib/services/trail-service";
   import TrailForm from "./TrailForm.svelte";
   import TrailList from "$lib/ui/TrailList.svelte";
   // @ts-ignore
   import Chart from "svelte-frappe-charts";
   import LeafletMap from "$lib/ui/LeafletMap.svelte";
   import { onMount } from "svelte";
-  import { refreshTrailMap, refreshTrailState } from "$lib/services/trail-utils";
-  import type { PageProps } from "./$types";
+  import { refreshTrailMap } from "$lib/services/trail-utils";
 
   subTitle.text = "Add a Stop";
-  let { data }: PageProps = $props();
-  let message = $state("Please add Stop!");
-
-  const handleTrailSuccess = () => {
-    return async ({ result }: { result: ActionResult }) => {
-      if (result.type === "success") {
-        const trail = result.data as Trail;
-        currentTrails.trails.push(trail);
-        map.addMarker(trail.lat, trail.lng, "");
-        map.moveTo(trail.lat, trail.lng);
-        refreshTrailState(currentTrails.trails, currentLocations.locations);
-        message = `Thanks! You added ${trail.name} to ${trail.location.name}`;
-      }
-    };
-  };
-
   let map: LeafletMap;
 
   onMount(async () => {
-    await refreshTrailState(data.trails, data.locations);
     await refreshTrailMap(map);
   });
-  
+
+  function trailAdded(trail: Trail) {
+    map.addMarker(trail.lat, trail.lng, "");
+    map.moveTo(trail.lat, trail.lng);
+  }
+
+
+    function refreshDonationMap(map: { $on?(type: string, callback: (e: any) => void): () => void; $set?(props: Partial<{ height?: number; }>): void; } & { addMarker: (lat: number, lng: number, popupText: string) => Promise<void>; moveTo: (lat: number, lng: number) => Promise<void>; }) {
+        throw new Error("Function not implemented.");
+    }
 </script>
 
 <div class="columns">
   <div class="column">
-    <Card title="Stops to Date">
+    <Card title="Trails to Date">
       <LeafletMap height={50} bind:this={map} />
     </Card>
   </div>
   <div class="column">
     <Card title="Add Stop">
-      <TrailForm locationList={currentLocations.locations} enhanceFn={handleTrailSuccess} {message} />
+      <TrailForm trailEvent={trailAdded} />
     </Card>
   </div>
   <div class="column">

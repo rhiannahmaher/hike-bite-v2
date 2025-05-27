@@ -2,17 +2,14 @@
   import Card from "$lib/ui/Card.svelte";
   import TrailList from "$lib/ui/TrailList.svelte";
   import { subTitle } from "$lib/runes.svelte";
-  import { refreshTrailState } from "$lib/services/trail-utils";
-  import type { PageProps } from "./$types";
+  import TrailDetails from "$lib/ui/TrailDetails.svelte";
 
   subTitle.text = "Stops to Date";
-  let { data }: PageProps = $props();
-  refreshTrailState(data.trails, data.locations);
 </script>
 
-<Card title="Donations">
+<Card title="Trails Report">
   <TrailList />
 </Card>
 <Card title="Trails">
-  <TrailList />
+  <TrailDetails />
 </Card>

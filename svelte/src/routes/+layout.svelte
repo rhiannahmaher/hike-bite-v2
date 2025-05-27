@@ -1,24 +1,17 @@
 <script lang="ts">
+  import { loggedInUser } from "$lib/runes.svelte";
+  import { trailService } from "$lib/services/trail-service";
   import Heading from "$lib/ui/Heading.svelte";
   import Menu from "$lib/ui/Menu.svelte";
-  import { loggedInUser } from "$lib/runes.svelte";
+  import { onMount } from "svelte";
 
-  export let data: any;
-  if (data.session) {
-    loggedInUser.email = data.session.email;
-    loggedInUser.name = data.session.name;
-    loggedInUser.token = data.session.token;
-    loggedInUser._id = data.session._id;
-  } else {
-    loggedInUser.email = "";
-    loggedInUser.name = "";
-    loggedInUser.token = "";
-    loggedInUser._id = "";
-  }
+  onMount(async () => {
+    await trailService.restoreSession();
+  });
 </script>
 
 <div class="container">
-  {#if loggedInUser.token}
+  {#if loggedInUser.email}
     <Menu />
     <Heading />
   {/if}

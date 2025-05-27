@@ -37,8 +37,7 @@ export const trailStore = {
   async add(trail: Trail): Promise<Trail | null> {
     let newTrail = new TrailMongoose({ ...trail });
     await newTrail.save();
-    const populatedTrail = await TrailMongoose.findById(newTrail._id).populate("donor").populate("location").lean();
-    return populatedTrail;
+    return newTrail;
   },
 
   async delete() {

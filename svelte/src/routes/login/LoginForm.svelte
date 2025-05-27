@@ -1,13 +1,30 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
+  import { trailService } from "$lib/services/trail-service";
   import Message from "$lib/ui/Message.svelte";
   import UserCredentials from "$lib/ui/UserCredentials.svelte";
+
+  let email = $state("");
+  let password = $state("");
   let message = "";
+
+  async function login() {
+    console.log(`attempting to log in email: ${email} with password: ${password}`);
+    let session = await trailService.login(email, password);
+    if (session) {
+      goto("/trail");
+    } else {
+      email = "";
+      password = "";
+      message = "Invalid Credentials";
+    }
+  }
 </script>
 
-{#if message}
-  <Message {message} />
-{/if}
-<form method="POST" action="?/login">
-  <UserCredentials />
-  <button class="button is-success is-fullwidth">Log In</button>
-</form>
+<div class="box">
+  {#if message}
+    <Message {message} />
+  {/if}
+  <UserCredentials bind:email bind:password />
+  <button onclick={() => login()} class="button">Log In</button>
+</div>

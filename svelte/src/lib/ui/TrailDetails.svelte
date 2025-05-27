@@ -8,7 +8,7 @@
       <div style="border: 1px solid #ddd; padding: 1rem; border-radius: 6px; margin-top: 0.5rem;">
         <p><strong>Name:</strong> {trail.name}</p>
         <p><strong>Type:</strong> {trail.type}</p>
-        <p><strong>Location:</strong> {trail.location.name}</p>
+        <p><strong>Location:</strong> {trail.location}</p>
         <p><strong>Added By:</strong> {trail.donor}</p>
       </div>
     </div>

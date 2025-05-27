@@ -3,11 +3,6 @@
   import Card from "$lib/ui/Card.svelte";
   // @ts-ignore
   import Chart from "svelte-frappe-charts";
-  import type { PageProps } from "./$types";
-  import { refreshTrailState } from "$lib/services/trail-utils";
-
-  let { data }: PageProps = $props();
-  refreshTrailState(data.trails, data.locations);
 </script>
 
 <div class="columns">
